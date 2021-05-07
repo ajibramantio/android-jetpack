@@ -21,7 +21,7 @@ class DetailFilmViewModelTest {
     @Test
     fun getFilm() {
         viewModel.setSelectedFilm(dummyFilm.title)
-        val filmEntity = viewModel.getFilm()
+        val filmEntity = viewModel.getMovie()
         assertNotNull(filmEntity)
         assertEquals(dummyFilm.title, filmEntity.title)
         assertEquals(dummyFilm.releaseYear, filmEntity.releaseYear)
