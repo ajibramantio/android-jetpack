@@ -24,14 +24,15 @@ class HomeActivityTest {
     var activityRule = ActivityScenarioRule(HomeActivity::class.java)
 
     @Test
-    fun loadFilms() {
-        Espresso.onView(ViewMatchers.withText("Movies")).perform(ViewActions.click())
+    fun loadMovies() {
+        Espresso.onView(withText("Movies")).perform(ViewActions.click())
         Espresso.onView(withId(R.id.rv_film)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.rv_film)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovie.size-1))
     }
 
     @Test
-    fun loadDetailFilm() {
+    fun loadDetailMovie() {
+        Espresso.onView(withText("Movies")).perform(ViewActions.click())
         Espresso.onView(withId(R.id.rv_film)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
         Espresso.onView(withId(R.id.text_title)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.text_title)).check(ViewAssertions.matches(withText(dummyMovie[0].title)))
@@ -49,15 +50,14 @@ class HomeActivityTest {
 
     @Test
     fun loadTvShows() {
-        Espresso.onView(ViewMatchers.withText("TV Shows")).perform(ViewActions.click())
+        Espresso.onView(withText("TV Shows")).perform(ViewActions.click())
         Espresso.onView(withId(R.id.rv_tvshow)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShow.size-1))
     }
 
     @Test
     fun loadDetailTvShows() {
-        Espresso.onView(ViewMatchers.withText("TV Shows")).perform(ViewActions.click())
-        Espresso.onView(withId(R.id.rv_tvshow)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(withText("TV Shows")).perform(ViewActions.click())
         Espresso.onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
         Espresso.onView(withId(R.id.text_title)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.text_title)).check(ViewAssertions.matches(withText(dummyTvShow[0].title)))
