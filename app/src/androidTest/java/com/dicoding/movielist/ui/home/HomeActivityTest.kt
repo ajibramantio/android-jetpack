@@ -43,7 +43,9 @@ class HomeActivityTest {
     fun loadMovies() {
         delayTwoSecond()
         Espresso.onView(withText("Movies")).perform(ViewActions.click())
+        delayTwoSecond()
         Espresso.onView(withId(R.id.rv_film)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        delayTwoSecond()
         Espresso.onView(withId(R.id.rv_film)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovie.size-1))
     }
 
