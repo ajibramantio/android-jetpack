@@ -1,37 +1,18 @@
 package com.dicoding.movielist.ui.detail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.dicoding.movielist.data.FilmEntity
-import com.dicoding.movielist.utils.DataDummy
+import com.dicoding.movielist.data.FilmRepository
+import com.dicoding.movielist.data.source.local.entity.FilmEntity
 
-class DetailFilmViewModel: ViewModel() {
+class DetailFilmViewModel(private val filmRepository: FilmRepository): ViewModel() {
     private lateinit var filmTitle: String
 
     fun setSelectedFilm(filmTitle: String) {
         this.filmTitle = filmTitle
     }
 
+    fun getMovie(): LiveData<FilmEntity> = filmRepository.getMovie(filmTitle)
 
-    fun getFilm(): FilmEntity {
-        lateinit var film: FilmEntity
-        val filmEntities = DataDummy.generateDummyMovie()
-        for (filmEntity in filmEntities) {
-            if (filmEntity.title == filmTitle) {
-                film = filmEntity
-            }
-        }
-        return film
-    }
-    fun getTvShow(): FilmEntity {
-        lateinit var tvshow: FilmEntity
-        val tvshowEntities = DataDummy.generateDummyTvShows()
-        for (tvshowEntity in tvshowEntities) {
-            if (tvshowEntity.title == filmTitle) {
-                tvshow = tvshowEntity
-            }
-        }
-        return tvshow
-    }
-
-
+    fun getTvShow(): LiveData<FilmEntity> = filmRepository.getTvShow(filmTitle)
 }

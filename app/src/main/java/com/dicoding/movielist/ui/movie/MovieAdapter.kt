@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.movielist.R
-import com.dicoding.movielist.data.FilmEntity
+import com.dicoding.movielist.data.source.local.entity.FilmEntity
 import com.dicoding.movielist.databinding.ItemsMovieBinding
 import com.dicoding.movielist.ui.detail.DetailFilmActivity
 
@@ -16,7 +16,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.FilmViewHolder>() {
     private var listFilms = ArrayList<FilmEntity>()
 
     fun setFilm(films: List<FilmEntity>?) {
-        if (films == null) return
+        if (films.isNullOrEmpty()) return
         this.listFilms.clear()
         this.listFilms.addAll(films)
     }

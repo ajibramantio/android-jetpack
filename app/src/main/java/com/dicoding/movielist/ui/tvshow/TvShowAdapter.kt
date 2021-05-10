@@ -9,7 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.dicoding.movielist.R
 import com.dicoding.movielist.databinding.ItemsTvshowBinding
 import com.dicoding.movielist.ui.detail.DetailFilmActivity
-import com.dicoding.movielist.data.FilmEntity
+import com.dicoding.movielist.data.source.local.entity.FilmEntity
 
 class TvShowAdapter: RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
 

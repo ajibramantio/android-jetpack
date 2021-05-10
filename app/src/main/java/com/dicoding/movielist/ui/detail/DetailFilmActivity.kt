@@ -1,15 +1,17 @@
 package com.dicoding.movielist.ui.detail
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.movielist.R
-import com.dicoding.movielist.data.FilmEntity
+import com.dicoding.movielist.data.source.local.entity.FilmEntity
 import com.dicoding.movielist.databinding.ActivityDetailFilmBinding
 import com.dicoding.movielist.databinding.ContentDetailFilmBinding
+import com.dicoding.movielist.viewmodel.ViewModelFactory
 
 class DetailFilmActivity : AppCompatActivity() {
     companion object {
@@ -30,29 +32,39 @@ class DetailFilmActivity : AppCompatActivity() {
         setSupportActionBar(activityDetailFilmBinding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailFilmViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailFilmViewModel::class.java]
         val extras = intent.extras
         if (extras != null) {
             val title = extras.getString(EXTRA_FILM)
             val type = extras.getString(EXTRA_TYPE)
+
             if (title != null) {
                 viewModel.setSelectedFilm(title)
-                if(type=="film"){
-                    populateFilm(viewModel.getFilm())
-                }
-                else{
-                    populateFilm(viewModel.getTvShow())
-                }
 
+                if(type=="film"){
+                    activityDetailFilmBinding.progressBar.visibility = View.VISIBLE
+                    viewModel.getMovie().observe(this, { movies ->
+                        activityDetailFilmBinding.progressBar.visibility = View.GONE
+                        populateFilm(movies)
+                    })
+                } else {
+                    activityDetailFilmBinding.progressBar.visibility = View.VISIBLE
+                    viewModel.getTvShow().observe(this, { tvShows ->
+                        activityDetailFilmBinding.progressBar.visibility = View.GONE
+                        populateFilm(tvShows)
+                    })
+                }
             }
         }
     }
+
     private fun populateFilm(filmEntity: FilmEntity) {
         detailContentBinding.textTitle.text = filmEntity.title
         detailContentBinding.textDescription.text = filmEntity.overview
         detailContentBinding.textGenrefilm.text = filmEntity.genre
-        detailContentBinding.textRating.text = "rating: " + filmEntity.imdbScore.toString() + "%"
-        detailContentBinding.textDuration.text = "duration: " + filmEntity.duration.toString() + "minutes"
+        detailContentBinding.textRating.text = StringBuilder("rating: " + filmEntity.imdbScore.toString() + "%")
+        detailContentBinding.textDuration.text = StringBuilder("duration: " + filmEntity.duration.toString() + " minutes")
         detailContentBinding.textDate.text = filmEntity.releaseYear.toString()
 
         Glide.with(this)

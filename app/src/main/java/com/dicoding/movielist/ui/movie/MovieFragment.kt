@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.movielist.databinding.FragmentMovieBinding
+import com.dicoding.movielist.viewmodel.ViewModelFactory
 
 
 class MovieFragment : Fragment() {
@@ -21,10 +22,17 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
-            val films = viewModel.getMovie()
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
             val filmAdapter = MovieAdapter()
-            filmAdapter.setFilm(films)
+
+            fragmentFilmBinding.progressBar.visibility = View.VISIBLE
+            viewModel.getMovie().observe(this, { movies ->
+                fragmentFilmBinding.progressBar.visibility = View.GONE
+                filmAdapter.setFilm(movies)
+                filmAdapter.notifyDataSetChanged()
+            })
+
             with(fragmentFilmBinding.rvFilm) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)

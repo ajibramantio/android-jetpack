@@ -1,4 +1,4 @@
-package com.dicoding.movielist.data
+package com.dicoding.movielist.data.source.local.entity
 
 data class FilmEntity (
     var title: String,
@@ -6,6 +6,8 @@ data class FilmEntity (
     var overview: String,
     var imdbScore: Int,
     var releaseYear: Int,
-    var duration:Int,
-    var photo:Int
-)
+    var duration: Int,
+    var photo: String
+){
+    var filmEntity: FilmEntity? = null
+}
