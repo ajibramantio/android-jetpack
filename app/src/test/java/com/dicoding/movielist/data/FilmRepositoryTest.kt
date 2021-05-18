@@ -2,6 +2,8 @@ package com.dicoding.movielist.data
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.dicoding.movielist.data.source.remote.RemoteDataSource
+import com.dicoding.movielist.data.source.remote.response.MovieResponse
+import com.dicoding.movielist.data.source.remote.response.TvShowResponse
 import com.dicoding.movielist.utils.DataDummy
 import com.dicoding.movielist.utils.LiveDataTestUtil
 import org.junit.Test
@@ -60,28 +62,29 @@ class FilmRepositoryTest {
     @Test
     fun getMovie() {
         doAnswer { invocation ->
-            (invocation.arguments[1] as RemoteDataSource.LoadMovieCallback)
-                .onMovieReceived(detailFilm)
+            (invocation.arguments[1] as RemoteDataSource.LoadMovieCallback).onMovieReceived(detailFilm)
             null
         }.`when`(remote).getMovie(eq(filmTitle), any())
 
         val resultMovie = LiveDataTestUtil.getValue(filmRepository.getMovie(filmTitle))
-        verify(remote).getMovie(eq(filmTitle), any())
+        verify(remote)
+            .getMovie(eq(filmTitle), any())
         assertNotNull(resultMovie)
-        assertEquals(detailFilm.title, resultMovie.filmEntity?.title)
+        assertNotNull(resultMovie.title)
+        assertEquals(detailFilm.title, resultMovie.title)
     }
 
     @Test
     fun getTvShow() {
         doAnswer { invocation ->
-            (invocation.arguments[1] as RemoteDataSource.LoadTvShowCallback)
-                .onTvShowReceived(detailTv)
+            (invocation.arguments[1] as RemoteDataSource.LoadTvShowCallback).onTvShowReceived(detailTv)
             null
         }.`when`(remote).getTvShow(eq(tvTitle), any())
 
-        val resultModule = LiveDataTestUtil.getValue(filmRepository.getTvShow(tvTitle))
+        val resultTvShow = LiveDataTestUtil.getValue(filmRepository.getTvShow(tvTitle))
         verify(remote).getTvShow(eq(tvTitle), any())
-        assertNotNull(resultModule)
-        assertEquals(detailTv.title, resultModule.filmEntity?.title)
+        assertNotNull(resultTvShow)
+        assertNotNull(resultTvShow.title)
+        assertEquals(detailTv.title, resultTvShow.title)
     }
 }
