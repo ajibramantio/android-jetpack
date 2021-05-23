@@ -31,6 +31,7 @@ class JsonHelper(private val context: Context) {
             for (i in 0 until listArray.length()) {
                 val movie = listArray.getJSONObject(i)
 
+                val id = movie.getString("id")
                 val title = movie.getString("title")
                 val genre = movie.getString("genre")
                 val overview = movie.getString("overview")
@@ -39,7 +40,7 @@ class JsonHelper(private val context: Context) {
                 val duration = movie.getInt("duration")
                 val photo = movie.getString("photo")
 
-                val movieResponse = MovieResponse(title, genre, overview, imdbScore, releaseYear, duration, photo)
+                val movieResponse = MovieResponse(id, title, genre, overview, imdbScore, releaseYear, duration, photo)
                 list.add(movieResponse)
             }
         } catch (e: JSONException) {
@@ -57,6 +58,7 @@ class JsonHelper(private val context: Context) {
             for (i in 0 until listArray.length()) {
                 val tvShow = listArray.getJSONObject(i)
 
+                val id = tvShow.getString("id")
                 val title = tvShow.getString("title")
                 val genre = tvShow.getString("genre")
                 val overview = tvShow.getString("overview")
@@ -65,7 +67,7 @@ class JsonHelper(private val context: Context) {
                 val duration = tvShow.getInt("duration")
                 val photo = tvShow.getString("photo")
 
-                val tvShowResponse = TvShowResponse(title, genre, overview, imdbScore, releaseYear, duration, photo)
+                val tvShowResponse = TvShowResponse(id, title, genre, overview, imdbScore, releaseYear, duration, photo)
                 list.add(tvShowResponse)
             }
         } catch (e: JSONException) {
@@ -83,6 +85,7 @@ class JsonHelper(private val context: Context) {
             for (i in 0 until listArray.length()) {
                 val movieEntity = listArray.getJSONObject(i)
                 if (movieEntity.getString("title") == filmTitle) {
+                    val id = movieEntity.getString("id")
                     val title = movieEntity.getString("title")
                     val genre = movieEntity.getString("genre")
                     val overview = movieEntity.getString("overview")
@@ -91,7 +94,7 @@ class JsonHelper(private val context: Context) {
                     val duration = movieEntity.getInt("duration")
                     val photo = movieEntity.getString("photo")
 
-                    movie = MovieResponse(title, genre, overview, imdbScore, releaseYear, duration, photo)
+                    movie = MovieResponse(id, title, genre, overview, imdbScore, releaseYear, duration, photo)
                     break
                 }
             }
@@ -110,6 +113,7 @@ class JsonHelper(private val context: Context) {
             for (i in 0 until listArray.length()) {
                 val tvShowEntity = listArray.getJSONObject(i)
                 if (tvShowEntity.getString("title") == filmTitle) {
+                    val id = tvShowEntity.getString("id")
                     val title = tvShowEntity.getString("title")
                     val genre = tvShowEntity.getString("genre")
                     val overview = tvShowEntity.getString("overview")
@@ -118,7 +122,7 @@ class JsonHelper(private val context: Context) {
                     val duration = tvShowEntity.getInt("duration")
                     val photo = tvShowEntity.getString("photo")
 
-                    tvShow = TvShowResponse(title, genre, overview, imdbScore, releaseYear, duration, photo)
+                    tvShow = TvShowResponse(id, title, genre, overview, imdbScore, releaseYear, duration, photo)
                     break
                 }
             }

@@ -53,6 +53,7 @@ class DetailFilmViewModelTest {
         val filmEntity = viewModel.getMovie().value as FilmEntity
         verify(filmRepository).getMovie(filmTitle)
         assertNotNull(filmEntity)
+        assertEquals(dummyFilm.id, filmEntity.id)
         assertEquals(dummyFilm.title, filmEntity.title)
         assertEquals(dummyFilm.releaseYear, filmEntity.releaseYear)
         assertEquals(dummyFilm.overview, filmEntity.overview)
@@ -74,6 +75,7 @@ class DetailFilmViewModelTest {
         val tvShowEntity = viewModelTv.getTvShow().value as FilmEntity
         verify(filmRepository).getTvShow(tvShowTitle)
         assertNotNull(tvShowEntity)
+        assertEquals(dummyTvShow.id,tvShowEntity.id)
         assertEquals(dummyTvShow.title,tvShowEntity.title)
         assertEquals(dummyTvShow.releaseYear, tvShowEntity.releaseYear)
         assertEquals(dummyTvShow.overview, tvShowEntity.overview)

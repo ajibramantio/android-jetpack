@@ -5,11 +5,14 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class TvShowResponse(
+    var id: String,
     var title: String,
     var genre: String,
     var overview: String,
     var imdbScore: Int,
     var releaseYear: Int,
     var duration: Int,
-    var photo: String
+    var photo: String,
+    var favorited: Boolean = false,
+    var type: String
 ): Parcelable

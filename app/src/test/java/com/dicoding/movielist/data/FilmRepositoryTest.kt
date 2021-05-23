@@ -2,8 +2,6 @@ package com.dicoding.movielist.data
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.dicoding.movielist.data.source.remote.RemoteDataSource
-import com.dicoding.movielist.data.source.remote.response.MovieResponse
-import com.dicoding.movielist.data.source.remote.response.TvShowResponse
 import com.dicoding.movielist.utils.DataDummy
 import com.dicoding.movielist.utils.LiveDataTestUtil
 import org.junit.Test

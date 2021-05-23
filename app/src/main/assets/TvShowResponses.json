@@ -1,6 +1,7 @@
 {
   "tvShows": [
     {
+      "id": "t01",
       "title": "The Simpsons",
       "genre": "Animation, Comedy",
       "overview": "The satiric adventures of a working-class family in the misfit city of Springfield.",
@@ -10,6 +11,7 @@
       "photo": "https://i.ibb.co/wCNVG9N/poster-simpsons.jpg"
     },
     {
+      "id": "m02",
       "title": "Friends",
       "genre": "Comedy, Romance",
       "overview": "Follows the personal and professional lives of six twenty to thirty-something-year-old friends living in Manhattan.",
@@ -19,6 +21,7 @@
       "photo": "https://i.ibb.co/R0XtjpH/poster-friends.jpg"
     },
     {
+      "id": "m03",
       "title": "How I Met Your Mother",
       "genre": "Comedy, Romance",
       "overview": "A father recounts to his children - through a series of flashbacks - the journey he and his four best friends took leading up to him meeting their mother.",
@@ -28,6 +31,7 @@
       "photo": "https://i.ibb.co/2t7CK0T/poster-himym.jpg"
     },
     {
+      "id": "m04",
       "title": "Money Heist",
       "genre": "Action, Crime, Mystery",
       "overview": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has a shred of evidence connected to Navy and Marine Corps personnel, regardless of rank or position.",
@@ -37,6 +41,7 @@
       "photo": "https://i.ibb.co/f2Q7L7d/poster-money.jpg"
     },
     {
+      "id": "m05",
       "title": "Stranger Things",
       "genre": "Drama, Fantasy, Horror",
       "overview": "When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.",
@@ -46,6 +51,7 @@
       "photo": "https://i.ibb.co/Km2rnML/poster-stranger.jpg"
     },
     {
+      "id": "m06",
       "title": "The Mandalorian",
       "genre": "Action, Adventure, Sci-Fi",
       "overview": "The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic.",
@@ -55,6 +61,7 @@
       "photo": "https://i.ibb.co/X3MTwHj/poster-mandalorian.jpg"
     },
     {
+      "id": "m07",
       "title": "Game of Thrones",
       "genre": "Action, Adventure, Drama",
       "overview": "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
@@ -64,6 +71,7 @@
       "photo": "https://i.ibb.co/mD5y6hz/poster-got.jpg"
     },
     {
+      "id": "m08",
       "title": "Attack on Titan",
       "genre": "Animation, Action, Adventure",
       "overview": "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
@@ -73,6 +81,7 @@
       "photo": "https://i.ibb.co/bd3Y6Nr/poster-aot.jpg"
     },
     {
+      "id": "m09",
       "title": "Wanda Vision",
       "genre": "Action, Comedy, Drama",
       "overview": "Blends the style of classic sitcoms with the MCU, in which Wanda Maximoff and Vision - two super-powered beings living their ideal suburban lives - begin to suspect that everything is not as it seems.",
@@ -82,6 +91,7 @@
       "photo": "https://i.ibb.co/rpVnV4S/poster-wanda.jpg"
     },
     {
+      "id": "m10",
       "title": "The Walking Dead",
       "genre": "Drama, Horror, Thriller",
       "overview": "Sheriff Deputy Rick Grimes wakes up from a coma to learn the world is in ruins and must lead a group of survivors to stay alive.",

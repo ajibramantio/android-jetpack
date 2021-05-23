@@ -36,7 +36,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.FilmViewHolder>() {
         fun bind(film: FilmEntity) {
             with(binding) {
                 tvItemTitle.text = film.title
-                tvItemDate.text =film.releaseYear.toString()
+                tvItemDate.text = film.releaseYear.toString()
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailFilmActivity::class.java)
                     intent.putExtra(DetailFilmActivity.EXTRA_FILM, film.title)

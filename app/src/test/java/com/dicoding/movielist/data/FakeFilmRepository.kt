@@ -16,13 +16,16 @@ class FakeFilmRepository (private val remoteDataSource: RemoteDataSource) : Film
                 val movieList = ArrayList<FilmEntity>()
                 for (response in movieResponses) {
                     val movie = FilmEntity(
+                        response.id,
                         response.title,
                         response.genre,
                         response.overview,
                         response.imdbScore,
                         response.releaseYear,
                         response.duration,
-                        response.photo
+                        response.photo,
+                        response.favorited,
+                        response.type
                     )
                     movieList.add(movie)
                 }
@@ -39,13 +42,18 @@ class FakeFilmRepository (private val remoteDataSource: RemoteDataSource) : Film
             override fun onAllTvShowsReceived(tvShowResponses: List<TvShowResponse>) {
                 val tvShowList = ArrayList<FilmEntity>()
                 for (response in tvShowResponses) {
-                    val tvShow = FilmEntity(response.title,
+                    val tvShow = FilmEntity(
+                        response.id,
+                        response.title,
                         response.genre,
                         response.overview,
                         response.imdbScore,
                         response.releaseYear,
                         response.duration,
-                        response.photo)
+                        response.photo,
+                        response.favorited,
+                        response.type
+                    )
                     tvShowList.add(tvShow)
                 }
                 tvShowResults.postValue(tvShowList)
@@ -58,16 +66,18 @@ class FakeFilmRepository (private val remoteDataSource: RemoteDataSource) : Film
     override fun getMovie(filmTitle: String): LiveData<FilmEntity> {
         val movieResult = MutableLiveData<FilmEntity>()
         remoteDataSource.getMovie(filmTitle, object : RemoteDataSource.LoadMovieCallback {
-            override fun onMovieReceived(movieResponses: MovieResponse) {
-                var movie: FilmEntity
-                movie = FilmEntity(
-                    movieResponses.title,
-                    movieResponses.genre,
-                    movieResponses.overview,
-                    movieResponses.imdbScore,
-                    movieResponses.releaseYear,
-                    movieResponses.duration,
-                    movieResponses.photo
+            override fun onMovieReceived(movieResponse: MovieResponse) {
+                val movie = FilmEntity(
+                    movieResponse.id,
+                    movieResponse.title,
+                    movieResponse.genre,
+                    movieResponse.overview,
+                    movieResponse.imdbScore,
+                    movieResponse.releaseYear,
+                    movieResponse.duration,
+                    movieResponse.photo,
+                    movieResponse.favorited,
+                    movieResponse.type
                 )
                 movieResult.postValue(movie)
             }
@@ -80,15 +90,17 @@ class FakeFilmRepository (private val remoteDataSource: RemoteDataSource) : Film
         val tvShowResult = MutableLiveData<FilmEntity>()
         remoteDataSource.getTvShow(filmTitle, object : RemoteDataSource.LoadTvShowCallback {
             override fun onTvShowReceived(tvShowResponse: TvShowResponse) {
-                val tvShow: FilmEntity
-                tvShow = FilmEntity(
+                val tvShow = FilmEntity(
+                    tvShowResponse.id,
                     tvShowResponse.title,
                     tvShowResponse.genre,
                     tvShowResponse.overview,
                     tvShowResponse.imdbScore,
                     tvShowResponse.releaseYear,
                     tvShowResponse.duration,
-                    tvShowResponse.photo
+                    tvShowResponse.photo,
+                    tvShowResponse.favorited,
+                    tvShowResponse.type
                 )
                 tvShowResult.postValue(tvShow)
             }
