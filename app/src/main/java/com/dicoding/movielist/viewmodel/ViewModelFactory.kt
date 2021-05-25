@@ -37,10 +37,10 @@ class ViewModelFactory private constructor(private val mFilmRepository: FilmRepo
             modelClass.isAssignableFrom(TvShowViewModel::class.java) -> {
                 return TvShowViewModel(mFilmRepository) as T
             }
-            modelClass.isAssignableFrom(MovieViewModel::class.java) -> {
+            modelClass.isAssignableFrom(FavoriteMovieViewModel::class.java) -> {
                 return FavoriteMovieViewModel(mFilmRepository) as T
             }
-            modelClass.isAssignableFrom(TvShowViewModel::class.java) -> {
+            modelClass.isAssignableFrom(FavoriteTvShowViewModel::class.java) -> {
                 return FavoriteTvShowViewModel(mFilmRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)

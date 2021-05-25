@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_me_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.favorite.home.FavoriteHomeActivity"></activity>
+        <activity android:name=".ui.favorite.home.FavoriteHomeActivity" />
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">

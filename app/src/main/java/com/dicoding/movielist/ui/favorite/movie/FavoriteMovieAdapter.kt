@@ -29,6 +29,13 @@ class FavoriteMovieAdapter : PagedListAdapter<FilmEntity, FavoriteMovieAdapter.F
         return FilmViewHolder(itemsFilmBinding)
     }
 
+    override fun onBindViewHolder(holder: FilmViewHolder, position: Int) {
+        val film = getItem(position)
+        if(film !=null){
+            holder.bind(film)
+        }
+    }
+
     fun getSwipedData(swipedPosition: Int): FilmEntity? = getItem(swipedPosition)
 
     class FilmViewHolder(private val binding: ItemsMovieBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -36,6 +43,7 @@ class FavoriteMovieAdapter : PagedListAdapter<FilmEntity, FavoriteMovieAdapter.F
             with(binding) {
                 tvItemTitle.text = film.title
                 tvItemDate.text = film.releaseYear.toString()
+
                 Glide.with(itemView.context)
                     .load(film.photo)
                     .apply(
@@ -43,13 +51,6 @@ class FavoriteMovieAdapter : PagedListAdapter<FilmEntity, FavoriteMovieAdapter.F
                             .error(R.drawable.ic_error))
                     .into(imgPoster)
             }
-        }
-    }
-
-    override fun onBindViewHolder(holder: FilmViewHolder, position: Int) {
-        val film = getItem(position)
-        if(film !=null){
-            holder.bind(film)
         }
     }
 }

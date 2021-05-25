@@ -19,7 +19,6 @@ class MovieFragment : Fragment() {
     private val binding get() = _fragmentFilmBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         _fragmentFilmBinding = FragmentMovieBinding.inflate(layoutInflater, container, false)
         return binding?.root
     }
