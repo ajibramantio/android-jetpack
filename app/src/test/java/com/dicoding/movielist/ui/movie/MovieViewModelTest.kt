@@ -3,9 +3,10 @@ package com.dicoding.movielist.ui.movie
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import com.dicoding.movielist.data.FilmRepository
 import com.dicoding.movielist.data.source.local.entity.FilmEntity
-import com.dicoding.movielist.utils.DataDummy
+import com.dicoding.movielist.vo.Resource
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -28,25 +29,33 @@ class MovieViewModelTest {
     @Mock
     private lateinit var filmRepository: FilmRepository
 
+    @Suppress("DEPRECATION")
     @Mock
-    private lateinit var observer: Observer<List<FilmEntity>>
+    private lateinit var pagedList: PagedList<FilmEntity>
+
+    @Suppress("DEPRECATION")
+    @Mock
+    private lateinit var observer: Observer<Resource<PagedList<FilmEntity>>>
 
     @Before
     fun setUp() {
         viewModel = MovieViewModel(filmRepository)
     }
 
+    @Suppress("DEPRECATION")
     @Test
     fun getMovie() {
-        val dummyMovies = DataDummy.generateDummyMovie()
-        val movies = MutableLiveData<List<FilmEntity>>()
-        movies.value = dummyMovies
+        val dummyMovies = Resource.success(pagedList)
+        `when`(dummyMovies.data?.size).thenReturn(10)
 
+        val movies = MutableLiveData<Resource<PagedList<FilmEntity>>>()
+        movies.value = dummyMovies
         `when`(filmRepository.getAllMovies()).thenReturn(movies)
+
         val movieEntities = viewModel.getMovie().value
         verify(filmRepository).getAllMovies()
         assertNotNull(movieEntities)
-        assertEquals(10, movieEntities?.size)
+        assertEquals(10, movieEntities?.data?.size)
 
         viewModel.getMovie().observeForever(observer)
         verify(observer).onChanged(dummyMovies)

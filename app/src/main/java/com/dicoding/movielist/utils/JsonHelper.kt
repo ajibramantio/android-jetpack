@@ -7,6 +7,7 @@ import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
 import android.util.Log
+import com.dicoding.movielist.data.source.local.entity.FilmEntity
 
 class JsonHelper(private val context: Context) {
 
@@ -24,8 +25,8 @@ class JsonHelper(private val context: Context) {
         }
     }
 
-    fun loadMovies(): List<MovieResponse> {
-        val list = ArrayList<MovieResponse>()
+    fun loadMovies(): List<FilmEntity> {
+        val list = ArrayList<FilmEntity>()
         try {
             val responseObject = JSONObject(parsingFileToString("MovieResponses.json").toString())
             val listArray = responseObject.getJSONArray("movies")
@@ -43,7 +44,7 @@ class JsonHelper(private val context: Context) {
                 val favorited = movie.getBoolean("favorited")
                 val type = movie.getString("type")
 
-                val movieResponse = MovieResponse(id, title, genre, overview, imdbScore, releaseYear, duration, photo, favorited, type)
+                val movieResponse = FilmEntity(id, title, genre, overview, imdbScore, releaseYear, duration, photo, favorited, type)
                 list.add(movieResponse)
             }
         } catch (e: JSONException) {
@@ -53,8 +54,8 @@ class JsonHelper(private val context: Context) {
         return list
     }
 
-    fun loadTvShows(): List<TvShowResponse> {
-        val list = ArrayList<TvShowResponse>()
+    fun loadTvShows(): List<FilmEntity> {
+        val list = ArrayList<FilmEntity>()
         try {
             val responseObject = JSONObject(parsingFileToString("TvShowResponses.json").toString())
             val listArray = responseObject.getJSONArray("tvShows")
@@ -72,7 +73,7 @@ class JsonHelper(private val context: Context) {
                 val favorited = tvShow.getBoolean("favorited")
                 val type = tvShow.getString("type")
 
-                val tvShowResponse = TvShowResponse(id, title, genre, overview, imdbScore, releaseYear, duration, photo, favorited, type)
+                val tvShowResponse = FilmEntity(id, title, genre, overview, imdbScore, releaseYear, duration, photo, favorited, type)
                 list.add(tvShowResponse)
             }
         } catch (e: JSONException) {

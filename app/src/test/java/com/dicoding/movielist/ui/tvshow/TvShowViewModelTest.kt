@@ -3,9 +3,11 @@ package com.dicoding.movielist.ui.tvshow
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import com.dicoding.movielist.data.FilmRepository
 import com.dicoding.movielist.data.source.local.entity.FilmEntity
 import com.dicoding.movielist.utils.DataDummy
+import com.dicoding.movielist.vo.Resource
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -29,7 +31,10 @@ class TvShowViewModelTest {
     private lateinit var filmRepository: FilmRepository
 
     @Mock
-    private lateinit var observer: Observer<List<FilmEntity>>
+    private lateinit var pagedList: PagedList<FilmEntity>
+
+    @Mock
+    private lateinit var observer: Observer<Resource<PagedList<FilmEntity>>>
 
     @Before
     fun setUp() {
@@ -38,15 +43,17 @@ class TvShowViewModelTest {
 
     @Test
     fun getTvShow() {
-        val dummyTvShows = DataDummy.generateDummyTvShows()
-        val tvShows = MutableLiveData<List<FilmEntity>>()
-        tvShows.value = dummyTvShows
+        val dummyTvShows = Resource.success(pagedList)
+        Mockito.`when`(dummyTvShows.data?.size).thenReturn(10)
 
+        val tvShows = MutableLiveData<Resource<PagedList<FilmEntity>>>()
+        tvShows.value = dummyTvShows
         Mockito.`when`(filmRepository.getAllTvShows()).thenReturn(tvShows)
+
         val tvShowEntities = viewModel.getTvShow().value
         verify(filmRepository).getAllTvShows()
         assertNotNull(tvShowEntities)
-        assertEquals(10, tvShowEntities?.size)
+        assertEquals(10, tvShowEntities?.data?.size)
 
         viewModel.getTvShow().observeForever(observer)
         verify(observer).onChanged(dummyTvShows)

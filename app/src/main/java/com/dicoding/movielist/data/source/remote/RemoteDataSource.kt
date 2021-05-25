@@ -4,6 +4,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.dicoding.movielist.data.source.local.entity.FilmEntity
 import com.dicoding.movielist.data.source.remote.response.MovieResponse
 import com.dicoding.movielist.data.source.remote.response.TvShowResponse
 import com.dicoding.movielist.utils.EspressoIdlingResource
@@ -25,9 +26,9 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
             }
     }
 
-    fun getAllMovies(): LiveData<ApiResponse<List<MovieResponse>>> {
+    fun getAllMovies(): LiveData<ApiResponse<List<FilmEntity>>> {
         EspressoIdlingResource.increment()
-        val resultMovie = MutableLiveData<ApiResponse<List<MovieResponse>>>()
+        val resultMovie = MutableLiveData<ApiResponse<List<FilmEntity>>>()
         handler.postDelayed({
             resultMovie.value = ApiResponse.success(jsonHelper.loadMovies())
             EspressoIdlingResource.decrement()
@@ -35,9 +36,9 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
         return resultMovie
     }
 
-    fun getAllTvShows(): LiveData<ApiResponse<List<TvShowResponse>>> {
+    fun getAllTvShows(): LiveData<ApiResponse<List<FilmEntity>>> {
         EspressoIdlingResource.increment()
-        val resultTvShow = MutableLiveData<ApiResponse<List<TvShowResponse>>>()
+        val resultTvShow = MutableLiveData<ApiResponse<List<FilmEntity>>>()
         handler.postDelayed({
             resultTvShow.value = ApiResponse.success(jsonHelper.loadTvShows())
             EspressoIdlingResource.decrement()
