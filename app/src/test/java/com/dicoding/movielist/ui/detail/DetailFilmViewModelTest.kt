@@ -50,7 +50,7 @@ class DetailFilmViewModelTest {
         film.value = dummyFilm
 
         `when`(filmRepository.getMovie(filmTitle)).thenReturn(film)
-        val filmEntity = viewModel.getMovie().value as FilmEntity
+        val filmEntity = viewModel.getMovie.value as FilmEntity
         verify(filmRepository).getMovie(filmTitle)
         assertNotNull(filmEntity)
         assertEquals(dummyFilm.id, filmEntity.id)

@@ -23,7 +23,7 @@ abstract class FilmDatabase : RoomDatabase() {
                 Room.databaseBuilder(
                     context.applicationContext,
                     FilmDatabase::class.java,
-                    "Film.db"
+                    "Movies.db"
                 ).build().apply {
                     INSTANCE = this
                 }

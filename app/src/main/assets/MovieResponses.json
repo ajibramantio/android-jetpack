@@ -8,7 +8,9 @@
       "imdbScore": 69,
       "releaseYear": 2011,
       "duration": 124,
-      "photo": "https://i.ibb.co/fNQKKsq/poster-ca-first.jpg"
+      "photo": "https://i.ibb.co/fNQKKsq/poster-ca-first.jpg",
+      "favorited": false,
+      "type": "movie"
     },
     {
       "id": "m02",
@@ -18,7 +20,9 @@
       "imdbScore": 69,
       "releaseYear": 2019,
       "duration": 123,
-      "photo": "https://i.ibb.co/wwMXQzV/poster-cm.jpg"
+      "photo": "https://i.ibb.co/wwMXQzV/poster-cm.jpg",
+      "favorited": false,
+      "type": "movie"
     },
     {
       "id": "m03",
@@ -28,7 +32,9 @@
       "imdbScore": 79,
       "releaseYear": 2008,
       "duration": 126,
-      "photo": "https://i.ibb.co/vv6YJzV/poster-im.jpg"
+      "photo": "https://i.ibb.co/vv6YJzV/poster-im.jpg",
+      "favorited": false,
+      "type": "movie"
     },
     {
       "id": "m04",
@@ -38,7 +44,9 @@
       "imdbScore": 70,
       "releaseYear": 2010,
       "duration": 124,
-      "photo": "https://i.ibb.co/xY9YYkf/poster-im-2.jpg"
+      "photo": "https://i.ibb.co/xY9YYkf/poster-im-2.jpg",
+      "favorited": false,
+      "type": "movie"
     },
     {
       "id": "m05",
@@ -48,7 +56,9 @@
       "imdbScore": 70,
       "releaseYear": 2011,
       "duration": 115,
-      "photo": "https://i.ibb.co/mBbs4PN/poster-th.jpg"
+      "photo": "https://i.ibb.co/mBbs4PN/poster-th.jpg",
+      "favorited": false,
+      "type": "movie"
     },
     {
       "id": "m06",
@@ -58,7 +68,9 @@
       "imdbScore": 80,
       "releaseYear": 2012,
       "duration": 143,
-      "photo": "https://i.ibb.co/PTQXN0Q/poster-av.jpg"
+      "photo": "https://i.ibb.co/PTQXN0Q/poster-av.jpg",
+      "favorited": false,
+      "type": "movie"
     },
     {
       "id": "m07",
@@ -68,7 +80,9 @@
       "imdbScore": 69,
       "releaseYear": 2013,
       "duration": 112,
-      "photo": "https://i.ibb.co/ZKFrhyR/poster-th-dark.jpg"
+      "photo": "https://i.ibb.co/ZKFrhyR/poster-th-dark.jpg",
+      "favorited": false,
+      "type": "movie"
     },
     {
       "id": "m08",
@@ -78,7 +92,9 @@
       "imdbScore": 71,
       "releaseYear": 2013,
       "duration": 13,
-      "photo": "https://i.ibb.co/L6SRFqd/P1-43-CAGED-006-E-G-Payoff-Poster-Crouching-ONLINE-DEBUT-FEBRUARY-27.jpg"
+      "photo": "https://i.ibb.co/L6SRFqd/P1-43-CAGED-006-E-G-Payoff-Poster-Crouching-ONLINE-DEBUT-FEBRUARY-27.jpg",
+      "favorited": false,
+      "type": "movie"
     },
     {
       "id": "m09",
@@ -88,7 +104,9 @@
       "imdbScore": 77,
       "releaseYear": 2014,
       "duration": 136,
-      "photo": "https://i.ibb.co/7gyjkJL/poster-ca-winter.jpg"
+      "photo": "https://i.ibb.co/7gyjkJL/poster-ca-winter.jpg",
+      "favorited": false,
+      "type": "movie"
     },
     {
       "id": "m10",
@@ -98,7 +116,9 @@
       "imdbScore": 80,
       "releaseYear": 2014,
       "duration": 121,
-      "photo": "https://i.ibb.co/DzwH5c9/poster-guardians.jpg"
+      "photo": "https://i.ibb.co/DzwH5c9/poster-guardians.jpg",
+      "favorited": false,
+      "type": "movie"
     }
   ]
 }

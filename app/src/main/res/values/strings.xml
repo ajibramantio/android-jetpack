@@ -13,4 +13,10 @@
     <string name="genre">genre</string>
     <string name="rating">rating</string>
     <string name="duration">duration</string>
+    <string name="menu_favorite">menu favorite</string>
+    <string name="favorite_activity">activity favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="message_ok">OK</string>
+    <string name="message_undo">Cancel delete item</string>
 </resources>

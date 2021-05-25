@@ -1,4 +1,4 @@
-package com.dicoding.movielist.ui.home
+package com.dicoding.movielist.ui.favorite.home
 
 import android.content.Context
 import androidx.annotation.StringRes
@@ -6,10 +6,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.dicoding.movielist.R
-import com.dicoding.movielist.ui.movie.MovieFragment
-import com.dicoding.movielist.ui.tvshow.TvShowFragment
+import com.dicoding.movielist.ui.favorite.movie.FavoriteMovieFragment
+import com.dicoding.movielist.ui.favorite.tvshow.FavoriteTvShowFragment
 
-class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class FavoriteSectionPagerAdapter(private val mContext: Context, fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     companion object {
         @StringRes
@@ -18,8 +18,8 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
 
     override fun getItem(position: Int): Fragment =
         when (position) {
-            0 -> MovieFragment()
-            1 -> TvShowFragment()
+            0 -> FavoriteMovieFragment()
+            1 -> FavoriteTvShowFragment()
             else -> Fragment()
         }
 

@@ -274,7 +274,9 @@ object DataDummy {
                 69,
                 2011,
                 124,
-                "@drawable/poster_ca_first")
+                "@drawable/poster_ca_first",
+            false,
+            "movie")
         )
         movies.add(MovieResponse(
                 "m02",
@@ -284,7 +286,9 @@ object DataDummy {
                 69,
                 2019,
                 123,
-                "@drawable/poster_cm")
+                "@drawable/poster_cm",
+            false,
+            "movie")
         )
         movies.add(MovieResponse(
                 "m03",
@@ -294,7 +298,9 @@ object DataDummy {
                 79,
                 2008,
                 126,
-                "@drawable/poster_im")
+                "@drawable/poster_im",
+            false,
+            "movie")
         )
         movies.add(MovieResponse(
                 "m04",
@@ -304,7 +310,9 @@ object DataDummy {
                 70,
                 2010,
                 124,
-                "@drawable/poster_im_2")
+                "@drawable/poster_im_2",
+            false,
+            "movie")
         )
         movies.add(MovieResponse(
                 "m05",
@@ -314,7 +322,9 @@ object DataDummy {
                 70,
                 2011,
                 115,
-                "@drawable/poster_th")
+                "@drawable/poster_th",
+            false,
+            "movie")
         )
         movies.add(MovieResponse(
                 "m06",
@@ -324,7 +334,9 @@ object DataDummy {
                 80,
                 2012,
                 143,
-                "@drawable/poster_av")
+                "@drawable/poster_av",
+            false,
+            "movie")
         )
         movies.add(MovieResponse(
                 "m07",
@@ -334,7 +346,9 @@ object DataDummy {
                 69,
                 2013,
                 112,
-                "@drawable/poster_th_dark")
+                "@drawable/poster_th_dark",
+            false,
+            "movie")
         )
         movies.add(MovieResponse(
                 "m08",
@@ -344,7 +358,9 @@ object DataDummy {
                 71,
                 2013,
                 130,
-                "@drawable/poster_im_3")
+                "@drawable/poster_im_3",
+            false,
+            "movie")
         )
         movies.add(MovieResponse(
                 "m09",
@@ -354,7 +370,9 @@ object DataDummy {
                 77,
                 2014,
                 136,
-                "@drawable/poster_ca_winter")
+                "@drawable/poster_ca_winter",
+            false,
+            "movie")
         )
         movies.add(MovieResponse(
                 "m10",
@@ -364,7 +382,9 @@ object DataDummy {
                 80,
                 2014,
                 121,
-                "@drawable/poster_guardians")
+                "@drawable/poster_guardians",
+            false,
+            "movie")
         )
 
         return movies
@@ -382,7 +402,9 @@ object DataDummy {
             86,
             1989,
             22,
-            "R.drawable.poster_simpsons")
+            "R.drawable.poster_simpsons",
+            false,
+            "tvshow")
         )
         tvShows.add(TvShowResponse(
             "t02",
@@ -392,7 +414,9 @@ object DataDummy {
             89,
             1994,
             22,
-            "R.drawable.poster_friends")
+            "R.drawable.poster_friends",
+            false,
+            "tvshow")
         )
         tvShows.add(TvShowResponse(
             "t03",
@@ -402,7 +426,9 @@ object DataDummy {
             83,
             2005,
             22,
-            "R.drawable.poster_himym")
+            "R.drawable.poster_himym",
+            false,
+            "tvshow")
         )
         tvShows.add(TvShowResponse(
             "t04",
@@ -412,7 +438,9 @@ object DataDummy {
             83,
             2017,
             70,
-            "R.drawable.poster_money")
+            "R.drawable.poster_money",
+            false,
+            "tvshow")
         )
         tvShows.add(TvShowResponse(
             "t05",
@@ -422,7 +450,9 @@ object DataDummy {
             87,
             2016,
             51,
-            "R.drawable.poster_stranger")
+            "R.drawable.poster_stranger",
+            false,
+            "tvshow")
         )
         tvShows.add(TvShowResponse(
             "t06",
@@ -432,7 +462,9 @@ object DataDummy {
             88,
             2019,
             40,
-            "R.drawable.poster_mandalorian")
+            "R.drawable.poster_mandalorian",
+            false,
+            "tvshow")
         )
         tvShows.add(TvShowResponse(
             "t07",
@@ -442,7 +474,9 @@ object DataDummy {
             93,
             2011,
             57,
-            "R.drawable.poster_got")
+            "R.drawable.poster_got",
+            false,
+            "tvshow")
         )
         tvShows.add(TvShowResponse(
             "t08",
@@ -452,7 +486,9 @@ object DataDummy {
             89,
             2013,
             24,
-            "R.drawable.poster_aot")
+            "R.drawable.poster_aot",
+            false,
+            "tvshow")
         )
         tvShows.add(TvShowResponse(
             "t09",
@@ -462,7 +498,9 @@ object DataDummy {
             81,
             2021,
             27,
-            "R.drawable.poster_wanda")
+            "R.drawable.poster_wanda",
+            false,
+            "tvshow")
         )
         tvShows.add(TvShowResponse(
             "t10",
@@ -472,7 +510,9 @@ object DataDummy {
             82,
             2010,
             44,
-            "R.drawable.poster_walking_dead")
+            "R.drawable.poster_walking_dead",
+            false,
+            "tvshow")
         )
 
         return tvShows

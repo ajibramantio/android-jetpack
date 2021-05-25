@@ -2,7 +2,6 @@ package com.dicoding.movielist.data.source.local.entity
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -40,7 +39,4 @@ data class FilmEntity (
 
     @ColumnInfo(name = "type")
     var type: String
-) {
-    @Embedded
-    var filmEntity: FilmEntity? = null
-}
+)

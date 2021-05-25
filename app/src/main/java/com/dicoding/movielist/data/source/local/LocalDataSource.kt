@@ -1,6 +1,8 @@
 package com.dicoding.movielist.data.source.local
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
+import androidx.paging.PagedList
 import com.dicoding.movielist.data.source.local.entity.FilmEntity
 import com.dicoding.movielist.data.source.local.room.FilmDao
 
@@ -13,22 +15,22 @@ class LocalDataSource private constructor(private val mFilmDao: FilmDao) {
             INSTANCE ?: LocalDataSource(filmDao)
     }
 
-    fun getAllMovie():  LiveData<List<FilmEntity>> = mFilmDao.getMovie()
-    fun getAllTvShow():  LiveData<List<FilmEntity>> = mFilmDao.getTvShow()
+    fun getAllMovies():  DataSource.Factory<Int, FilmEntity> = mFilmDao.getMovie()
+    fun getAllTvShows():  DataSource.Factory<Int, FilmEntity> = mFilmDao.getTvShow()
 
-    fun getFavoritedFilm():  LiveData<List<FilmEntity>> = mFilmDao.getFavoritedMovie()
-    fun getFavoritedTvShow():  LiveData<List<FilmEntity>> = mFilmDao.getFavoritedTvShow()
+    fun getFavoritedFilm():  DataSource.Factory<Int, FilmEntity> = mFilmDao.getFavoritedMovie()
+    fun getFavoritedTvShow():  DataSource.Factory<Int, FilmEntity> = mFilmDao.getFavoritedTvShow()
 
-    fun getDetailFilm(filmId: Int): LiveData<FilmEntity> = mFilmDao.getDetail(filmId)
+    fun getFilm(filmId: String): LiveData<FilmEntity> = mFilmDao.getDetail(filmId)
 
     fun insertFilm(films: List<FilmEntity>) = mFilmDao.insertMovie(films)
 
-    fun updateFilm(film:FilmEntity){
-        mFilmDao.updateMovie(film)
+    fun updateFilm(film: FilmEntity){
+        mFilmDao.updateFilm(film)
     }
 
     fun setFilmFavorite(film: FilmEntity, newState: Boolean) {
         film.favorited = newState
-        mFilmDao.updateMovie(film)
+        mFilmDao.updateFilm(film)
     }
 }
