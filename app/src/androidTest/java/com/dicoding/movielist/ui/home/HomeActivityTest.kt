@@ -41,7 +41,6 @@ class HomeActivityTest {
 
     @Test
     fun loadMovies() {
-        delayTwoSecond()
         Espresso.onView(withText("Movies")).perform(ViewActions.click())
         Espresso.onView(withId(R.id.rv_film)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.rv_film)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovie.size-1))
@@ -49,11 +48,8 @@ class HomeActivityTest {
 
     @Test
     fun loadDetailMovie() {
-        delayTwoSecond()
         Espresso.onView(withText("Movies")).perform(ViewActions.click())
-        delayTwoSecond()
         Espresso.onView(withId(R.id.rv_film)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
-        delayFiveSecond()
         Espresso.onView(withId(R.id.text_title)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.text_title)).check(ViewAssertions.matches(withText(dummyMovie[0].title)))
         Espresso.onView(withId(R.id.text_date)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
@@ -70,21 +66,15 @@ class HomeActivityTest {
 
     @Test
     fun loadTvShows() {
-        delayTwoSecond()
         Espresso.onView(withText("TV Shows")).perform(ViewActions.click())
-        delayTwoSecond()
         Espresso.onView(withId(R.id.rv_tvshow)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        delayTwoSecond()
         Espresso.onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShow.size-1))
     }
 
     @Test
     fun loadDetailTvShows() {
-        delayTwoSecond()
         Espresso.onView(withText("TV Shows")).perform(ViewActions.click())
-        delayTwoSecond()
         Espresso.onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
-        delayFiveSecond()
         Espresso.onView(withId(R.id.text_title)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.text_title)).check(ViewAssertions.matches(withText(dummyTvShow[0].title)))
         Espresso.onView(withId(R.id.text_date)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
@@ -97,21 +87,5 @@ class HomeActivityTest {
         Espresso.onView(withId(R.id.text_rating)).check(ViewAssertions.matches(withText("rating: " + dummyTvShow[0].imdbScore.toString() + "%")))
         Espresso.onView(withId(R.id.text_duration)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.text_duration)).check(ViewAssertions.matches(withText("duration: " + dummyTvShow[0].duration.toString() + " minutes")))
-    }
-
-    private fun delayTwoSecond() {
-        try {
-            Thread.sleep(2000)
-        } catch (e: InterruptedException) {
-            e.printStackTrace()
-        }
-    }
-
-    private fun delayFiveSecond() {
-        try {
-            Thread.sleep(5000)
-        } catch (e: InterruptedException) {
-            e.printStackTrace()
-        }
     }
 }

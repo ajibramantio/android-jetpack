@@ -2,6 +2,8 @@ package com.dicoding.movielist.data.source.remote
 
 import android.os.Handler
 import android.os.Looper
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.dicoding.movielist.data.source.remote.response.MovieResponse
 import com.dicoding.movielist.data.source.remote.response.TvShowResponse
 import com.dicoding.movielist.utils.EspressoIdlingResource
@@ -19,40 +21,48 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
 
         fun getInstance(helper: JsonHelper): RemoteDataSource =
             instance ?: synchronized(this) {
-                instance ?: RemoteDataSource(helper).apply { instance = this }
+                RemoteDataSource(helper).apply { instance = this }
             }
     }
 
-    fun getAllMovies(callback: LoadMoviesCallback) {
+    fun getAllMovies(): LiveData<ApiResponse<List<MovieResponse>>> {
         EspressoIdlingResource.increment()
+        val resultMovie = MutableLiveData<ApiResponse<List<MovieResponse>>>()
         handler.postDelayed({
-            callback.onAllMoviesReceived(jsonHelper.loadMovies())
+            resultMovie.value = ApiResponse.success(jsonHelper.loadMovies())
             EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
+        return resultMovie
     }
 
-    fun getAllTvShows(callback: LoadTvShowsCallback) {
+    fun getAllTvShows(): LiveData<ApiResponse<List<TvShowResponse>>> {
         EspressoIdlingResource.increment()
+        val resultTvShow = MutableLiveData<ApiResponse<List<TvShowResponse>>>()
         handler.postDelayed({
-            callback.onAllTvShowsReceived(jsonHelper.loadTvShows())
+            resultTvShow.value = ApiResponse.success(jsonHelper.loadTvShows())
             EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
+        return resultTvShow
     }
 
-    fun getMovie(filmTitle: String, callback: LoadMovieCallback) {
+    fun getMovie(filmTitle: String): LiveData<ApiResponse<MovieResponse>> {
         EspressoIdlingResource.increment()
+        val resultMov = MutableLiveData<ApiResponse<MovieResponse>>()
         handler.postDelayed({
-            callback.onMovieReceived(jsonHelper.loadMovie(filmTitle))
+            resultMov.value = ApiResponse.success(jsonHelper.loadMovie(filmTitle))
             EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
+        return resultMov
     }
 
-    fun getTvShow(filmTitle: String, callback: LoadTvShowCallback) {
+    fun getTvShow(filmTitle: String): LiveData<ApiResponse<TvShowResponse>> {
         EspressoIdlingResource.increment()
+        val resultTv = MutableLiveData<ApiResponse<TvShowResponse>>()
         handler.postDelayed({
-            callback.onTvShowReceived(jsonHelper.loadTvShow(filmTitle))
+            resultTv.value = ApiResponse.success(jsonHelper.loadTvShow(filmTitle))
             EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
+        return resultTv
     }
 
     interface LoadMoviesCallback {

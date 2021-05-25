@@ -1,94 +1,124 @@
 {
   "tvShows": [
     {
+      "id": "t01",
       "title": "The Simpsons",
       "genre": "Animation, Comedy",
       "overview": "The satiric adventures of a working-class family in the misfit city of Springfield.",
       "imdbScore": 86,
       "releaseYear": 1989,
       "duration": 22,
-      "photo": "https://i.ibb.co/wCNVG9N/poster-simpsons.jpg"
+      "photo": "https://i.ibb.co/wCNVG9N/poster-simpsons.jpg",
+      "favorited": false,
+      "type": "tvshow"
     },
     {
+      "id": "t02",
       "title": "Friends",
       "genre": "Comedy, Romance",
       "overview": "Follows the personal and professional lives of six twenty to thirty-something-year-old friends living in Manhattan.",
       "imdbScore": 89,
       "releaseYear": 1994,
       "duration": 22,
-      "photo": "https://i.ibb.co/R0XtjpH/poster-friends.jpg"
+      "photo": "https://i.ibb.co/R0XtjpH/poster-friends.jpg",
+      "favorited": false,
+      "type": "tvshow"
     },
     {
+      "id": "t03",
       "title": "How I Met Your Mother",
       "genre": "Comedy, Romance",
       "overview": "A father recounts to his children - through a series of flashbacks - the journey he and his four best friends took leading up to him meeting their mother.",
       "imdbScore": 83,
       "releaseYear": 2005,
       "duration": 22,
-      "photo": "https://i.ibb.co/2t7CK0T/poster-himym.jpg"
+      "photo": "https://i.ibb.co/2t7CK0T/poster-himym.jpg",
+      "favorited": false,
+      "type": "tvshow"
     },
     {
+      "id": "t04",
       "title": "Money Heist",
       "genre": "Action, Crime, Mystery",
       "overview": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has a shred of evidence connected to Navy and Marine Corps personnel, regardless of rank or position.",
       "imdbScore": 83,
       "releaseYear": 2017,
       "duration": 70,
-      "photo": "https://i.ibb.co/f2Q7L7d/poster-money.jpg"
+      "photo": "https://i.ibb.co/f2Q7L7d/poster-money.jpg",
+      "favorited": false,
+      "type": "tvshow"
     },
     {
+      "id": "t05",
       "title": "Stranger Things",
       "genre": "Drama, Fantasy, Horror",
       "overview": "When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.",
       "imdbScore": 87,
       "releaseYear": 2016,
       "duration": 51,
-      "photo": "https://i.ibb.co/Km2rnML/poster-stranger.jpg"
+      "photo": "https://i.ibb.co/Km2rnML/poster-stranger.jpg",
+      "favorited": false,
+      "type": "tvshow"
     },
     {
+      "id": "t06",
       "title": "The Mandalorian",
       "genre": "Action, Adventure, Sci-Fi",
       "overview": "The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic.",
       "imdbScore": 88,
       "releaseYear": 2019,
       "duration": 40,
-      "photo": "https://i.ibb.co/X3MTwHj/poster-mandalorian.jpg"
+      "photo": "https://i.ibb.co/X3MTwHj/poster-mandalorian.jpg",
+      "favorited": false,
+      "type": "tvshow"
     },
     {
+      "id": "t07",
       "title": "Game of Thrones",
       "genre": "Action, Adventure, Drama",
       "overview": "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
       "imdbScore": 93,
       "releaseYear": 2011,
       "duration": 57,
-      "photo": "https://i.ibb.co/mD5y6hz/poster-got.jpg"
+      "photo": "https://i.ibb.co/mD5y6hz/poster-got.jpg",
+      "favorited": false,
+      "type": "tvshow"
     },
     {
+      "id": "t08",
       "title": "Attack on Titan",
       "genre": "Animation, Action, Adventure",
       "overview": "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
       "imdbScore": 89,
       "releaseYear": 2013,
       "duration": 24,
-      "photo": "https://i.ibb.co/bd3Y6Nr/poster-aot.jpg"
+      "photo": "https://i.ibb.co/bd3Y6Nr/poster-aot.jpg",
+      "favorited": false,
+      "type": "tvshow"
     },
     {
+      "id": "t09",
       "title": "Wanda Vision",
       "genre": "Action, Comedy, Drama",
       "overview": "Blends the style of classic sitcoms with the MCU, in which Wanda Maximoff and Vision - two super-powered beings living their ideal suburban lives - begin to suspect that everything is not as it seems.",
       "imdbScore": 81,
       "releaseYear": 2021,
       "duration": 27,
-      "photo": "https://i.ibb.co/rpVnV4S/poster-wanda.jpg"
+      "photo": "https://i.ibb.co/rpVnV4S/poster-wanda.jpg",
+      "favorited": false,
+      "type": "tvshow"
     },
     {
+      "id": "t10",
       "title": "The Walking Dead",
       "genre": "Drama, Horror, Thriller",
       "overview": "Sheriff Deputy Rick Grimes wakes up from a coma to learn the world is in ruins and must lead a group of survivors to stay alive.",
       "imdbScore": 82,
       "releaseYear": 2010,
       "duration": 44,
-      "photo": "https://i.ibb.co/WHMkxZz/poster-walking-dead.jpg"
+      "photo": "https://i.ibb.co/WHMkxZz/poster-walking-dead.jpg",
+      "favorited": false,
+      "type": "tvshow"
     }
   ]
 }

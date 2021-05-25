@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.movielist.data.FilmRepository
 import com.dicoding.movielist.di.Injection
 import com.dicoding.movielist.ui.detail.DetailFilmViewModel
+import com.dicoding.movielist.ui.favorite.movie.FavoriteMovieViewModel
+import com.dicoding.movielist.ui.favorite.tvshow.FavoriteTvShowViewModel
 import com.dicoding.movielist.ui.movie.MovieViewModel
 import com.dicoding.movielist.ui.tvshow.TvShowViewModel
 
@@ -34,6 +36,12 @@ class ViewModelFactory private constructor(private val mFilmRepository: FilmRepo
             }
             modelClass.isAssignableFrom(TvShowViewModel::class.java) -> {
                 return TvShowViewModel(mFilmRepository) as T
+            }
+            modelClass.isAssignableFrom(FavoriteMovieViewModel::class.java) -> {
+                return FavoriteMovieViewModel(mFilmRepository) as T
+            }
+            modelClass.isAssignableFrom(FavoriteTvShowViewModel::class.java) -> {
+                return FavoriteTvShowViewModel(mFilmRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
