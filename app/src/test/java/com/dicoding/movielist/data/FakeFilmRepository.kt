@@ -2,6 +2,7 @@ package com.dicoding.movielist.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.paging.PagedList
 import com.dicoding.movielist.data.source.local.LocalDataSource
 import com.dicoding.movielist.data.source.local.entity.FilmEntity
 import com.dicoding.movielist.data.source.remote.ApiResponse
@@ -16,12 +17,12 @@ class FakeFilmRepository (private val remoteDataSource: RemoteDataSource,
                                          private val appExecutors: AppExecutors) :
     FilmDataSource {
 
-    override fun getAllMovies(): LiveData<Resource<List<FilmEntity>>> {
-        return object : NetworkBoundResource<List<FilmEntity>, List<FilmEntity>>(appExecutors) {
-            public override fun loadFromDB(): LiveData<List<FilmEntity>> =
+    override fun getAllMovies(): LiveData<Resource<PagedList<FilmEntity>>> {
+        return object : NetworkBoundResource<PagedList<FilmEntity>, List<FilmEntity>>(appExecutors) {
+            public override fun loadFromDB(): LiveData<PagedList<FilmEntity>> =
                 localDataSource.getAllMovies()
 
-            override fun shouldFetch(data: List<FilmEntity>?): Boolean =
+            override fun shouldFetch(data: PagedList<FilmEntity>?): Boolean =
                 data == null || data.isEmpty()
 
             public override fun createCall(): LiveData<ApiResponse<List<FilmEntity>>> =
@@ -49,12 +50,12 @@ class FakeFilmRepository (private val remoteDataSource: RemoteDataSource,
         }.asLiveData()
     }
 
-    override fun getAllTvShows(): LiveData<Resource<List<FilmEntity>>> {
-        return object : NetworkBoundResource<List<FilmEntity>, List<FilmEntity>>(appExecutors) {
-            public override fun loadFromDB(): LiveData<List<FilmEntity>> =
+    override fun getAllTvShows(): LiveData<Resource<PagedList<FilmEntity>>> {
+        return object : NetworkBoundResource<PagedList<FilmEntity>, List<FilmEntity>>(appExecutors) {
+            public override fun loadFromDB(): LiveData<PagedList<FilmEntity>> =
                 localDataSource.getAllTvShows()
 
-            override fun shouldFetch(data: List<FilmEntity>?): Boolean =
+            override fun shouldFetch(data: PagedList<FilmEntity>?): Boolean =
                 data == null || data.isEmpty()
 
             public override fun createCall(): LiveData<ApiResponse<List<FilmEntity>>> =
